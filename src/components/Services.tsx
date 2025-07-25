@@ -1,6 +1,22 @@
 import { Shirt, Smartphone, Package2, Layers } from "lucide-react";
+import aritziaLogo from "@/assets/aritzia-logo.png";
+import amazonLogo from "@/assets/amazon-logo.png";
+import zaraLogo from "@/assets/zara-logo.png";
+import hmLogo from "@/assets/hm-logo.png";
+import bestbuyLogo from "@/assets/bestbuy-logo.png";
 
 const Services = () => {
+  const brands = [
+    { name: "Aritzia", logo: aritziaLogo },
+    { name: "Amazon.ca", logo: amazonLogo },
+    { name: "Zara", logo: zaraLogo },
+    { name: "H&M", logo: hmLogo },
+    { name: "Best Buy", logo: bestbuyLogo },
+    { name: "Aritzia", logo: aritziaLogo },
+    { name: "Amazon.ca", logo: amazonLogo },
+    { name: "Zara", logo: zaraLogo },
+  ];
+
   const services = [
     {
       icon: <Shirt className="h-8 w-8 text-primary" />,
@@ -38,6 +54,46 @@ const Services = () => {
           <p className="text-foreground">
             Before we pick it up, make sure your item is eligible for return. We'll help with packing, 
             labeling, and dropping it off — but the return shipping cost must be covered by you or the brand.
+          </p>
+        </div>
+
+        {/* Scrolling Brand Logos */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold text-center text-foreground mb-8">
+            Returns made easy - even from 100+ stores, including:
+          </h3>
+          
+          <div className="relative overflow-hidden py-8">
+            {/* First row - scrolling left */}
+            <div className="flex animate-scroll-left mb-8">
+              {[...brands, ...brands].map((brand, index) => (
+                <div key={`left-${index}`} className="flex-shrink-0 mx-8">
+                  <img 
+                    src={brand.logo} 
+                    alt={`${brand.name} logo`}
+                    className="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Second row - scrolling right */}
+            <div className="flex animate-scroll-right">
+              {[...brands, ...brands].map((brand, index) => (
+                <div key={`right-${index}`} className="flex-shrink-0 mx-8">
+                  <img 
+                    src={brand.logo} 
+                    alt={`${brand.name} logo`}
+                    className="h-12 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <p className="text-center text-sm text-muted-foreground">
+            All trademarks are the property of their respective owners. Baccksee is not affiliated with these brands. 
+            We only pick up eligible items purchased online.
           </p>
         </div>
 
