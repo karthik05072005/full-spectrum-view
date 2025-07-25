@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-delivery.jpg";
+import heroVideo from "@/assets/WhatsApp Video 2025-07-25 at 5.52.50 PM (1).mp4";
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -44,11 +44,16 @@ const Hero = () => {
           
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={heroImage} 
-                alt="Delivery person at customer's door receiving parcels"
+              <video 
+                src={heroVideo} 
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-[400px] lg:h-[500px] object-cover"
-              />
+              >
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
